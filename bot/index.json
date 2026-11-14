@@ -1,0 +1,23 @@
+
+const express = require("express");
+const pino = require("pino");
+
+const app = express();
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("SUPREME BOT Backend is running!");
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    status: "online",
+    bot: "SUPREME BOT"
+  });
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("SUPREME BOT running on port " + PORT);
+});
